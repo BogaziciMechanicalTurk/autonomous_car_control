@@ -3,11 +3,12 @@ const float pi = 3.141592;
 
 //pins
 
-const int stepPin = 5; 
-const int dirPin = 2; 
-const int enPin = 9;
-const int fwPin = 11;
-const int breakPin = 7;
+const int stepPin = 9; 
+const int dirPin = 10; 
+const int enPin = 11;
+
+const int fwPin = 2;
+const int brPin = 5;
 
 
 //const int potPin='A2';
@@ -104,8 +105,8 @@ void setup()
 
   // break setup
 
-  pinMode(breakPin, OUTPUT);
-  digitalWrite(breakPin,HIGH);
+  pinMode(brPin, OUTPUT);
+  digitalWrite(brPin,HIGH);
 }
 
 void loop()
@@ -116,10 +117,10 @@ void loop()
     analogWrite(fwPin,255*speed_cmd/speed_max*voltage_max);
 
     if(break_cmd > 0){
-      digitalWrite(breakPin,LOW);
+      digitalWrite(brPin,LOW);
     }
     else{
-      digitalWrite(breakPin,HIGH);
+      digitalWrite(brPin,HIGH);
     }
 
     if(fabs(steer_cmd-steer)>steer_tol){
